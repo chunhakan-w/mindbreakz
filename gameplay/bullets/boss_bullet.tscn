@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cutih5uilm0j8"]
+
+[ext_resource type="Script" uid="uid://c6iyhr508ksjb" path="res://gameplay/bullets/boss_bullet.gd" id="1_0"]
+[ext_resource type="Texture2D" uid="uid://dlcbycciesx1j" path="res://gameplay/bullets/ChatGPT Image 12 ส.ค. 2569 23_26_04.png" id="2_cc777"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc777"]
+atlas = ExtResource("2_cc777")
+region = Rect2(0, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rkpj"]
+atlas = ExtResource("2_cc777")
+region = Rect2(512, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur61c"]
+atlas = ExtResource("2_cc777")
+region = Rect2(0, 768, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5631"]
+atlas = ExtResource("2_cc777")
+region = Rect2(512, 768, 512, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_br2pk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc777")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rkpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur61c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5631")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+
+[node name="BossBullet" type="Area2D" unique_id=494178890]
+collision_layer = 16
+collision_mask = 9
+script = ExtResource("1_0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=599247579]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1564753744]
+position = Vector2(1.1920929e-07, -5)
+scale = Vector2(0.1352235, 0.13127172)
+sprite_frames = SubResource("SpriteFrames_br2pk")
+frame_progress = 0.44445622
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1102378452]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VisibleOnScreenNotifier2D" unique_id=962867015]
+shape = SubResource("RectangleShape2D_2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

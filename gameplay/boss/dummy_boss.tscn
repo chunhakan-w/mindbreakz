@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://kbe4srjsxqc"]
+
+[ext_resource type="Script" uid="uid://djqaw3w5ttx0x" path="res://gameplay/boss/dummy_boss.gd" id="1_0"]
+[ext_resource type="Texture2D" uid="uid://dlvlxv5or6ndd" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_55 (1).png" id="2_qj2l8"]
+[ext_resource type="Texture2D" uid="uid://b10lfn6xongmn" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_55 (2).png" id="3_agvqi"]
+[ext_resource type="Texture2D" uid="uid://c06y5uung6sak" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_57 (3).png" id="4_0tm2f"]
+[ext_resource type="Texture2D" uid="uid://vhs5rl7vvbp6" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_57 (4).png" id="5_0y8lh"]
+[ext_resource type="Texture2D" uid="uid://cscp3xaqho5jn" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_57 (5).png" id="6_sdqgr"]
+[ext_resource type="Texture2D" uid="uid://bmsq5weemn8bl" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_57 (6).png" id="7_kpq0y"]
+[ext_resource type="Texture2D" uid="uid://dk4ei174gtg17" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_57 (7).png" id="8_hmocy"]
+[ext_resource type="Texture2D" uid="uid://c4b4q7nk5u0cg" path="res://gameplay/boss/animate/ChatGPT Image 13 ส.ค. 2569 00_33_59 (8).png" id="9_ehc5v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_br2pk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qj2l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_agvqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0tm2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0y8lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sdqgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kpq0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hmocy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ehc5v")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(377, 275)
+
+[node name="DummyBoss" type="CharacterBody2D" unique_id=1891782229]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=842872750]
+position = Vector2(-3.9999998, -94.99999)
+scale = Vector2(-0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_br2pk")
+autoplay = "default"
+frame_progress = 0.7625021
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=45835322]
+position = Vector2(1.5, -89.5)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="StateLabel" type="Label" parent="." unique_id=597136583]
+offset_left = -46.0
+offset_top = -278.0
+offset_right = 54.0
+offset_bottom = -248.0
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1

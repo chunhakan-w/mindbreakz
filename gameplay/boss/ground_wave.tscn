@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bs2u1kjggw2uf"]
+
+[ext_resource type="Script" uid="uid://dpxtwp34qm0gk" path="res://gameplay/boss/ground_wave.gd" id="1_0"]
+[ext_resource type="Texture2D" uid="uid://dca8frw00syrq" path="res://gameplay/boss/ChatGPT Image 12 ส.ค. 2569 23_30_14.png" id="2_vacgt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(73, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxdga"]
+atlas = ExtResource("2_vacgt")
+region = Rect2(0, 0, 627, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icqtj"]
+atlas = ExtResource("2_vacgt")
+region = Rect2(627, 0, 627, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cd6j"]
+atlas = ExtResource("2_vacgt")
+region = Rect2(0, 627, 627, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nki1"]
+atlas = ExtResource("2_vacgt")
+region = Rect2(627, 627, 627, 627)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_br2pk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxdga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icqtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cd6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nki1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GroundWave" type="Area2D" unique_id=462106810]
+collision_layer = 32
+script = ExtResource("1_0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1400250498]
+position = Vector2(6.5, 13)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1857773275]
+position = Vector2(-33, -41)
+scale = Vector2(-0.28583393, 0.352624)
+sprite_frames = SubResource("SpriteFrames_br2pk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

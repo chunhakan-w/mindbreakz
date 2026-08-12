@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dvu0ub5jroqsr"]
+
+[ext_resource type="PackedScene" uid="uid://44145foretx2" path="res://character_body_2d.tscn" id="1_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5viw"]
+size = Vector2(1319.5, 41)
+
+[node name="main" type="Node2D" unique_id=858210531]
+
+[node name="griund" type="StaticBody2D" parent="." unique_id=71481536]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="griund" unique_id=586129210]
+position = Vector2(495, 613)
+shape = SubResource("RectangleShape2D_p5viw")
+debug_color = Color(0.98647815, 0.1158751, 3.85046e-07, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="griund" unique_id=1432661737]
+offset_left = -153.25
+offset_top = 596.5
+offset_right = 1299.75
+offset_bottom = 636.5
+
+[node name="CharacterBody2D" parent="." unique_id=2071746621 instance=ExtResource("1_0xm2m")]
+position = Vector2(360, 469)

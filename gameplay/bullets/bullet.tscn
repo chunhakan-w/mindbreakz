@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dew4y5py3ytg2"]
+
+[ext_resource type="Script" uid="uid://ds3xqlckbtjxj" path="res://gameplay/bullets/bullet.gd" id="1_0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(16, 8)
+
+[node name="Bullet" type="Area2D" unique_id=1172138954]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1688730749]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Sprite2D" type="ColorRect" parent="." unique_id=645913590]
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+color = Color(1, 0.8, 0.2, 1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=135974080]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VisibleOnScreenNotifier2D" unique_id=1342261359]
+shape = SubResource("RectangleShape2D_2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

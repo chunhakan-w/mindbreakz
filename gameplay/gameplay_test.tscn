@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://ccmdevsjjuxie"]
+
+[ext_resource type="Script" uid="uid://b2ylugo0tpn1u" path="res://gameplay/gameplay_test.gd" id="1_0"]
+[ext_resource type="PackedScene" uid="uid://cdwey4px3xtf1" path="res://gameplay/player/player.tscn" id="2_0"]
+[ext_resource type="PackedScene" uid="uid://kbe4srjsxqc" path="res://gameplay/boss/dummy_boss.tscn" id="3_0"]
+[ext_resource type="PackedScene" uid="uid://bblce5sijtxrd" path="res://gameplay/boss_hp_bar.tscn" id="4_0"]
+[ext_resource type="PackedScene" uid="uid://2hexu0b3h6uj" path="res://gameplay/player_hp_bar.tscn" id="5_0"]
+[ext_resource type="FontFile" uid="uid://fwcbibt42m8s" path="res://gameplay/PixelifySans-Bold.ttf" id="6_0mtu5"]
+[ext_resource type="Texture2D" uid="uid://q4v7edftsjg7" path="res://gameplay/background animation/ChatGPT Image 13 ส.ค. 2569 00_31_27.png" id="7_nouoe"]
+[ext_resource type="Texture2D" uid="uid://t8ns7d6dry28" path="res://gameplay/background animation/image.png" id="8_ydw8e"]
+[ext_resource type="AudioStream" uid="uid://dmm1ttwdpahxg" path="res://gameplay/music/boss1.mp3" id="9_l5eyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(2000, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_obhsx"]
+font = ExtResource("6_0mtu5")
+font_size = 39
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tudi"]
+font = ExtResource("6_0mtu5")
+font_size = 39
+font_color = Color(0, 1, 0.45490196, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydw8e"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(0, 0, 591, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5eyq"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(591, 0, 591, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j518m"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(0, 332, 591, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu5hb"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(591, 332, 591, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm58r"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(0, 664, 591, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32p8j"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(591, 664, 591, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yslas"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(0, 996, 591, 332)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vssdt"]
+atlas = ExtResource("7_nouoe")
+region = Rect2(591, 996, 591, 332)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_br2pk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydw8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5eyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j518m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu5hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm58r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32p8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yslas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vssdt")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="GameplayTest" type="Node2D" unique_id=1610061031]
+position = Vector2(573, 335)
+scale = Vector2(0.5818148, 0.6735601)
+script = ExtResource("1_0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1583983157]
+z_index = -1
+position = Vector2(-1.71875, 0)
+limit_left = 0
+limit_top = 0
+limit_right = 2000
+limit_bottom = 1000
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=155814633]
+position = Vector2(0, 400)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=390768363]
+position = Vector2(6.875061, 49.84845)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Sprite2D" type="ColorRect" parent="Ground" unique_id=1893230787]
+offset_left = -1000.0
+offset_right = 1000.0
+offset_bottom = 100.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Player" parent="." unique_id=395013617 instance=ExtResource("2_0")]
+position = Vector2(-893.75525, 351.8617)
+
+[node name="DummyBoss" parent="." unique_id=1199650579 instance=ExtResource("3_0")]
+z_index = -1
+position = Vector2(8.593758, 350.37704)
+
+[node name="BossPointLeft" type="Marker2D" parent="." unique_id=1086688702]
+position = Vector2(-890.31775, 350.37704)
+
+[node name="BossPointCenter" type="Marker2D" parent="." unique_id=1498033664]
+position = Vector2(8.593847, 351.86172)
+
+[node name="BossPointRight" type="Marker2D" parent="." unique_id=2133070271]
+position = Vector2(912.349, 351.46918)
+
+[node name="BossHPBar" parent="." unique_id=1094909628 instance=ExtResource("4_0")]
+offset_left = 555.1595
+offset_top = -442.42526
+offset_right = 955.1595
+offset_bottom = -412.42526
+grow_horizontal = 2
+
+[node name="PlayerHPBar" parent="." unique_id=1094909629 instance=ExtResource("5_0")]
+offset_left = -945.318
+offset_top = -440.9406
+offset_right = -745.318
+offset_bottom = -410.9406
+grow_vertical = 0
+
+[node name="Label2" type="Label" parent="." unique_id=1558794280]
+offset_left = 556.87823
+offset_top = -491.4187
+offset_right = 787.87823
+offset_bottom = -444.4187
+text = "Boss Health"
+label_settings = SubResource("LabelSettings_obhsx")
+
+[node name="Label" type="Label" parent="." unique_id=1569349789]
+offset_left = -953.9118
+offset_top = -488.44937
+offset_right = -689.9118
+offset_bottom = -441.44937
+text = "Player Health"
+label_settings = SubResource("LabelSettings_2tudi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=763591173]
+z_index = -2
+position = Vector2(4.296936, -0.7423229)
+scale = Vector2(3.4037573, 3.0436385)
+sprite_frames = SubResource("SpriteFrames_br2pk")
+autoplay = "default"
+frame = 7
+frame_progress = 0.76597524
+
+[node name="Image" type="Sprite2D" parent="." unique_id=1208086538]
+position = Vector2(-42.968987, 475.0876)
+scale = Vector2(1.5500052, 1.5500052)
+texture = ExtResource("8_ydw8e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2120022923]
+stream = ExtResource("9_l5eyq")
+volume_db = -35.443
+autoplay = true
+parameters/looping = true

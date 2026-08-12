@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dmvgyojneqmw1"]
+
+[ext_resource type="Script" uid="uid://de0rpu5b6x6y2" path="res://story/story_1.gd" id="1_bg8xw"]
+[ext_resource type="AudioStream" uid="uid://ix3jqa2sn551" path="res://story/1.mp3" id="2_jhcsj"]
+
+[node name="Story1" type="Node2D" unique_id=903743604]
+script = ExtResource("1_bg8xw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=514499172]
+offset_left = 264.00003
+offset_top = 46.0
+offset_right = 304.00003
+offset_bottom = 86.0
+scale = Vector2(15.800001, 14.080001)
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="." unique_id=2127323576]
+
+[node name="NextButton" type="Button" parent="." unique_id=801106846]
+z_index = 10
+offset_left = 913.0
+offset_top = 264.0
+offset_right = 962.0
+offset_bottom = 295.0
+text = "NEXT"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=783044876]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.84, 16.199999)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6509804)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=421716523]
+stream = ExtResource("2_jhcsj")
+volume_db = -6.386
+autoplay = true
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
